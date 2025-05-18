@@ -1,5 +1,5 @@
 
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/contexts/theme-context';
@@ -64,11 +64,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  // Viewport
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-  },
   // Favicon (Next.js handles favicon.ico in /app by default, but for other icons)
   icons: {
     icon: '/favicon.ico', // or '/icon.png'
@@ -95,6 +90,11 @@ export const metadata: Metadata = {
   //     'id-ID': `${appUrl}/id`,
   //   },
   // },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
