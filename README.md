@@ -17,7 +17,7 @@ An elegant and interactive neumorphic analog clock. Experience time with a clean
 ## 🌟 Key Features
 
 *   🎨 **Neumorphic Design**: Smooth modern UI with neumorphic shadows and highlights.
-*   ⏱️ **Analog Clock**: Classic analog clock face with hour, minute, and second hands, including hour numerals and a second-hand tail.
+*   ⏱️ **Analog Clock**: Classic analog clock face with hour, minute, and second hands, including hour numerals.
 *   💻 **Digital Clock**: Clear digital display for the current time (HH:MM:SS) and date, formatted according to the user's locale.
 *   🌗 **Theme Toggle**: Seamlessly switch between light and dark themes. Theme preference is saved in `localStorage`.
 *   🌍 **Localization**:
