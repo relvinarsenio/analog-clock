@@ -29,6 +29,10 @@ An elegant and interactive neumorphic analog clock. Experience time with a clean
 *   🔍 **SEO Friendly**: Includes relevant meta tags for better search engine visibility.
 *   🛠️ **Built with Modern Technologies**: Leverages Next.js (App Router), React, Tailwind CSS, and ShadCN UI components.
 
+## ✅ Lighthouse score
+
+[![lighthouse-score](screenshots/lighthouse-score.png)](https://pagespeed.web.dev/analysis/https-clock-noteapp-icu/i1fe26154e?form_factor=desktop&hl=en)
+
 ## 🚀 Tech Stack
 
 *   **Framework**: <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js"/>
