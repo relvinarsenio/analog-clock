@@ -69,16 +69,16 @@ export const metadata: Metadata = {
     width: 'device-width',
     initialScale: 1,
   },
-  // Favicon (Next.js handles favicon.ico in /app by default, but for other icons)
-  // icons: {
-  //   icon: '/favicon.ico', // or '/icon.png'
-  //   shortcut: '/shortcut-icon.png',
-  //   apple: '/apple-icon.png',
-  //   other: {
-  //     rel: 'apple-touch-icon-precomposed',
-  //     url: '/apple-touch-icon-precomposed.png',
-  //   },
-  // },
+  Favicon (Next.js handles favicon.ico in /app by default, but for other icons)
+  icons: {
+    icon: '/favicon.ico', // or '/icon.png'
+    // shortcut: '/shortcut-icon.png',
+    // apple: '/apple-icon.png',
+    // other: {
+    //   rel: 'apple-touch-icon-precomposed',
+    //   url: '/apple-touch-icon-precomposed.png',
+    // },
+  },
   // Verification tags (if you need to verify with Google Search Console, Bing, etc.)
   // verification: {
   //   google: 'YOUR_GOOGLE_SITE_VERIFICATION_CODE',
