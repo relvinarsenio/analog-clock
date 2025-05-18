@@ -1,0 +1,110 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 96%; /* #F5F5F5 Soft light gray */
+    --foreground: 0 0% 20%; /* #333333 Charcoal gray for text on light background */
+    --card: 0 0% 96%;
+    --card-foreground: 0 0% 20%;
+    --popover: 0 0% 96%;
+    --popover-foreground: 0 0% 20%;
+    --primary: 177 38% 40%; /* #419D9A Darker pastel teal for better contrast */
+    --primary-foreground: 0 0% 10%; /* Darker text for contrast on primary */
+    --secondary: 0 0% 90%; /* Lighter gray */
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 355 50% 90%; /* #F2D7D9 Warm pastel coral */
+    --accent-foreground: 0 0% 10%; /* Darker text for contrast on accent */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 177 38% 50%; /* A slightly darker shade of the new primary for focus rings */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 20%; /* #333333 Charcoal gray */
+    --foreground: 0 0% 96%; /* #F5F5F5 Soft light gray for text on dark background */
+    --card: 0 0% 20%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 20%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 177 38% 79%; /* #A7DBD8 Soft pastel teal (contrast is fine in dark mode) */
+    --primary-foreground: 0 0% 10%;
+    --secondary: 0 0% 25%; /* Darker gray */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 25%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 355 50% 90%; /* #F2D7D9 Warm pastel coral */
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 28%;
+    --input: 0 0% 28%;
+    --ring: 177 38% 69%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+
+  * {
+    @apply border-border;
+  }
+}
+
+.neumorphic-shadow-light {
+  /* Light theme values */
+  box-shadow: 5px 5px 10px hsl(var(--border)), 
+              -5px -5px 10px hsl(0 0% 100% / 0.8);
+}
+.dark .neumorphic-shadow-light {
+  /* Dark theme values */
+  box-shadow: 5px 5px 10px hsl(0 0% 10% / 0.7),
+              -5px -5px 10px hsl(var(--border) / 0.7);
+}
+
+.neumorphic-inset-shadow-light {
+  /* Light theme values for inset shadow */
+  box-shadow: inset 4px 4px 8px hsl(var(--border)), 
+              inset -4px -4px 8px hsl(0 0% 100% / 0.7);
+}
+.dark .neumorphic-inset-shadow-light {
+  /* Dark theme values for inset shadow */
+  box-shadow: inset 4px 4px 8px hsl(0 0% 10% / 0.6), 
+              inset -4px -4px 8px hsl(var(--border) / 0.6);
+}
