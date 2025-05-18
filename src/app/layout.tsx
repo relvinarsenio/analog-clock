@@ -18,14 +18,14 @@ const geistMono = Geist_Mono({
 
 const appTitle = 'Analog Clock';
 const appDescription = 'An elegant and interactive neumorphic analog clock. Experience time with a clean, modern design, featuring both analog and digital displays.';
-const appUrl = 'https://analog-clock.example.com'; // Replace with your actual app URL
-const appImage = 'https://placehold.co/1200x630.png?text=Analog+Clock'; // Replace with your actual preview image URL
+const appUrl = 'https://clock.noteapp.icu/'; // Replace with your actual app URL
+const appImage = 'https://github.com/relvinarsenio/analog-clock/blob/main/screenshots/preview.png?raw=true'; // Replace with your actual preview image URL
 
 export const metadata: Metadata = {
   title: appTitle,
   description: appDescription,
-  keywords: ['neumorphic clock', 'analog clock', 'digital clock', 'time', 'watch', 'elegant clock', 'interactive clock', 'neumorphic timepiece', 'modern clock', 'light theme', 'dark theme', 'chrono glow', 'chronoglow'],
-  authors: [{ name: 'Your Name or Company', url: 'https://example.com' }], // Replace with your details
+  keywords: ['neumorphic clock', 'analog clock', 'digital clock', 'time', 'watch', 'elegant clock', 'interactive clock', 'neumorphic timepiece', 'modern clock', 'light theme', 'dark theme', 'orion clock', 'orionglow'],
+  authors: [{ name: 'Orion Dev', url: 'https://noteapp.icu' }], // Replace with your details
   applicationName: 'Analog Clock',
   // Open Graph Metadata
   openGraph: {
