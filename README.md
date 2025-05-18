@@ -49,8 +49,8 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ### 📋 Prerequisites
 
-*   Node.js (v18.18.0 or later recommended, see `package.json` for `engines`)
-*   npm (v9.x or later recommended) or yarn
+*   Node.js (v20.0.0 or later recommended, see `package.json` for `engines`)
+*   npm (v10.x or later recommended) or yarn
 
 ### 🛠️ Installation
 
