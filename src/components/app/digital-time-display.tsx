@@ -1,7 +1,6 @@
 
 "use client";
 
-import { useState, useEffect } from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { useLocalization } from '@/contexts/localization-context';
 import { Card, CardContent } from '@/components/ui/card';
@@ -32,23 +31,28 @@ export function DigitalTimeDisplay() {
       setDateString(now.toLocaleDateString(locale, dateFormatOptions));
     };
 
+    // Initial display right on mount
     updateDisplay();
 
+    // Synchronize subsequent updates to the start of each second
     const synchronizer = () => {
       const now = new Date();
       const msUntilNextSecond = 1000 - now.getMilliseconds();
 
+      // Clear any existing timer before setting a new one
       if (timerIdRef.current) {
         clearTimeout(timerIdRef.current);
       }
 
       timerIdRef.current = setTimeout(() => {
-        updateDisplay(); 
+        updateDisplay(); // Update right at the turn of the second
         
+        // Clear the timeout reference before setting interval
         if (timerIdRef.current) {
-           clearTimeout(timerIdRef.current);
+           clearTimeout(timerIdRef.current); // Should be the timeout itself
+        }
         
-        
+        // Then set interval for subsequent seconds
         timerIdRef.current = setInterval(updateDisplay, 1000);
       }, msUntilNextSecond);
     };
@@ -57,10 +61,10 @@ export function DigitalTimeDisplay() {
 
     return () => {
       if (timerIdRef.current) {
-        clearTimeout(timerIdRef.current);
+        clearTimeout(timerIdRef.current); // Clears both setTimeout and setInterval
       }
     };
-  }, [locale]);
+  }, [locale]); // Re-run if locale changes
 
   return (
     <Card className="neumorphic-shadow-light p-3 sm:p-4 text-center max-w-xs sm:max-w-sm w-full">
