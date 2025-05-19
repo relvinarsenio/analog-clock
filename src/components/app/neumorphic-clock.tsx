@@ -4,7 +4,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 const NeumorphicClock = () => {
-  const [time, setTime] = useState(new Date());
+  const [, setTime] = useState(new Date());
   const secondsRef = useRef<HTMLDivElement>(null);
   const minutesRef = useRef<HTMLDivElement>(null);
   const hoursRef = useRef<HTMLDivElement>(null);
