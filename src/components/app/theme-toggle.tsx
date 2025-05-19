@@ -32,7 +32,7 @@ export function ThemeToggle() {
             )}
           </Button>
         </TooltipTrigger>
-        <TooltipContent>
+        <TooltipContent align="end">
           <p>{tooltipText}</p>
         </TooltipContent>
       </Tooltip>
