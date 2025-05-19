@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
@@ -18,6 +17,12 @@ const dateFormatOptions: Intl.DateTimeFormatOptions = {
   day: 'numeric',
 };
 
+/**
+ * Displays the current time and date formatted according to the user's locale, updating precisely at the start of each second.
+ *
+ * @remark
+ * The update mechanism synchronizes with the real-world clock to ensure that time changes occur exactly at the beginning of each new second, minimizing drift.
+ */
 export function DigitalTimeDisplay() {
   const [timeString, setTimeString] = useState<string>("--:--:--");
   const [dateString, setDateString] = useState<string>("Loading date...");
