@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocalization } from '@/contexts/localization-context';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -22,21 +23,44 @@ export function DigitalTimeDisplay() {
   const [timeString, setTimeString] = useState<string>("--:--:--");
   const [dateString, setDateString] = useState<string>("Loading date...");
   const { locale } = useLocalization();
+  const timerIdRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const updateStrings = () => {
+    const updateDisplay = () => {
       const now = new Date();
       setTimeString(now.toLocaleTimeString(locale, timeFormatOptions));
       setDateString(now.toLocaleDateString(locale, dateFormatOptions));
     };
 
-    // Call immediately to set the initial time/date on client mount
-    updateStrings();
-    
-    // Then update every second
-    const timerId = setInterval(updateStrings, 1000);
-    return () => clearInterval(timerId);
-  }, [locale]); // Re-run if locale changes
+    updateDisplay();
+
+    const synchronizer = () => {
+      const now = new Date();
+      const msUntilNextSecond = 1000 - now.getMilliseconds();
+
+      if (timerIdRef.current) {
+        clearTimeout(timerIdRef.current);
+      }
+
+      timerIdRef.current = setTimeout(() => {
+        updateDisplay(); 
+        
+        if (timerIdRef.current) {
+           clearTimeout(timerIdRef.current);
+        
+        
+        timerIdRef.current = setInterval(updateDisplay, 1000);
+      }, msUntilNextSecond);
+    };
+
+    synchronizer();
+
+    return () => {
+      if (timerIdRef.current) {
+        clearTimeout(timerIdRef.current);
+      }
+    };
+  }, [locale]);
 
   return (
     <Card className="neumorphic-shadow-light p-3 sm:p-4 text-center max-w-xs sm:max-w-sm w-full">
