@@ -31,28 +31,25 @@ export function DigitalTimeDisplay() {
       setDateString(now.toLocaleDateString(locale, dateFormatOptions));
     };
 
-    // Initial display right on mount
+    
     updateDisplay();
 
-    // Synchronize subsequent updates to the start of each second
+    
     const synchronizer = () => {
       const now = new Date();
       const msUntilNextSecond = 1000 - now.getMilliseconds();
 
-      // Clear any existing timer before setting a new one
       if (timerIdRef.current) {
         clearTimeout(timerIdRef.current);
       }
 
       timerIdRef.current = setTimeout(() => {
-        updateDisplay(); // Update right at the turn of the second
+        updateDisplay();
         
-        // Clear the timeout reference before setting interval
         if (timerIdRef.current) {
-           clearTimeout(timerIdRef.current); // Should be the timeout itself
+           clearTimeout(timerIdRef.current);
         }
         
-        // Then set interval for subsequent seconds
         timerIdRef.current = setInterval(updateDisplay, 1000);
       }, msUntilNextSecond);
     };
@@ -61,10 +58,10 @@ export function DigitalTimeDisplay() {
 
     return () => {
       if (timerIdRef.current) {
-        clearTimeout(timerIdRef.current); // Clears both setTimeout and setInterval
+        clearTimeout(timerIdRef.current);
       }
     };
-  }, [locale]); // Re-run if locale changes
+  }, [locale]);
 
   return (
     <Card className="neumorphic-shadow-light p-3 sm:p-4 text-center max-w-xs sm:max-w-sm w-full">
