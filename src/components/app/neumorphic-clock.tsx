@@ -40,11 +40,14 @@ const NeumorphicClock = () => {
     return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
-  const clockSize = "w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72";
-  const handBaseClasses = "absolute bottom-1/2 left-1/2 origin-bottom rounded-t-full transform-gpu";
+  const clockSize = "w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80";
+  const handBaseClasses = "absolute bottom-1/2 left-1/2 origin-bottom rounded-t-full transform-gpu transition-transform duration-75 ease-out";
 
   return (
-    <div className={`relative ${clockSize} rounded-full neumorphic-shadow-light flex items-center justify-center bg-background p-3 border-2 border-card/60`}>
+    <div className={`relative ${clockSize} rounded-full neumorphic-shadow-light flex items-center justify-center bg-gradient-to-br from-card to-background p-4 border border-primary/20`}>
+      {/* Outer ring decoration */}
+      <div className="absolute inset-2 rounded-full border-2 border-primary/10"></div>
+      
       {/* Hour markers */}
       {[...Array(12)].map((_, i) => (
         <div
@@ -52,7 +55,11 @@ const NeumorphicClock = () => {
           className="absolute w-full h-full"
           style={{ transform: `rotate(${i * 30}deg)` }}
         >
-          <div className={`absolute top-0.5 left-1/2 -translate-x-1/2 w-0.5 h-2.5 rounded-full ${i % 3 === 0 ? 'bg-primary' : 'bg-muted-foreground'}`} />
+          <div className={`absolute top-1 left-1/2 -translate-x-1/2 rounded-full ${
+            i % 3 === 0 
+              ? 'w-1 h-4 bg-gradient-to-b from-primary to-accent' 
+              : 'w-0.5 h-3 bg-muted-foreground/70'
+          }`} />
         </div>
       ))}
 
@@ -65,7 +72,7 @@ const NeumorphicClock = () => {
             className="absolute w-full h-full"
             style={{ transform: `rotate(${i * 6}deg)` }}
           >
-            <div className="absolute top-1 left-1/2 -translate-x-1/2 w-px h-1.5 rounded-full bg-muted-foreground/50" />
+            <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-px h-2 rounded-full bg-muted-foreground/30" />
           </div>
         );
       })}
@@ -75,7 +82,7 @@ const NeumorphicClock = () => {
         const hour = index + 1;
         const angleDeg = 90 - (hour * 30); 
         const angleRad = angleDeg * Math.PI / 180;
-        const radiusPercentage = 38; 
+        const radiusPercentage = 35; 
         
         const xPos = radiusPercentage * Math.cos(angleRad);
         const yPos = radiusPercentage * Math.sin(angleRad);
@@ -83,7 +90,7 @@ const NeumorphicClock = () => {
         return (
           <div
             key={`hour-num-${hour}`}
-            className="absolute text-[0.6rem] sm:text-xs md:text-sm font-medium text-foreground select-none"
+            className="absolute text-sm sm:text-base md:text-lg font-bold text-foreground select-none bg-primary/10 rounded-full w-8 h-8 flex items-center justify-center"
             style={{
               left: `calc(50% + ${xPos}%)`,
               top: `calc(50% - ${yPos}%)`,
@@ -98,23 +105,23 @@ const NeumorphicClock = () => {
       {/* Hour Hand */}
       <div
         ref={hoursRef}
-        className={`${handBaseClasses} w-1.5 h-[25%] bg-foreground shadow-md`}
+        className={`${handBaseClasses} w-2 h-[28%] bg-gradient-to-t from-foreground to-foreground/80 shadow-lg`}
         style={{ transform: 'rotate(0deg)' }} 
       />
       {/* Minute Hand */}
       <div
         ref={minutesRef}
-        className={`${handBaseClasses} w-1 h-[35%] bg-foreground shadow-md`}
+        className={`${handBaseClasses} w-1.5 h-[38%] bg-gradient-to-t from-foreground to-foreground/90 shadow-lg`}
         style={{ transform: 'rotate(0deg)' }}
       />
       {/* Second Hand */}
       <div
         ref={secondsRef}
-        className={`${handBaseClasses} w-0.5 h-[40%] bg-primary shadow-md`}
+        className={`${handBaseClasses} w-0.5 h-[42%] bg-gradient-to-t from-primary via-primary to-accent shadow-lg`}
         style={{ transform: 'rotate(0deg)' }}
       />
       {/* Center Dot */}
-      <div className="absolute w-3 h-3 bg-primary rounded-full neumorphic-inset-shadow-light shadow-inner" />
+      <div className="absolute w-4 h-4 bg-gradient-to-br from-primary to-accent rounded-full neumorphic-inset-shadow-light shadow-inner border border-primary/30" />
     </div>
   );
 };

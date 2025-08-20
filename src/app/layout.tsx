@@ -1,20 +1,20 @@
 
 import type { Metadata, Viewport } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+// import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/contexts/theme-context';
 import { LocalizationProvider } from '@/contexts/localization-context';
 import { Toaster } from "@/components/ui/toaster";
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
+// const geistSans = Geist({
+//   variable: '--font-geist-sans',
+//   subsets: ['latin'],
+// });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+// const geistMono = Geist_Mono({
+//   variable: '--font-geist-mono',
+//   subsets: ['latin'],
+// });
 
 const appTitle = 'Analog Clock';
 const appDescription = 'An elegant and interactive neumorphic analog clock. Experience time with a clean, modern design, featuring both analog and digital displays.';
@@ -104,7 +104,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}>
+      <body className="antialiased bg-background text-foreground font-sans">
         <ThemeProvider>
           <LocalizationProvider>
             {children}

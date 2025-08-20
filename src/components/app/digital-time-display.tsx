@@ -64,14 +64,15 @@ export function DigitalTimeDisplay() {
   }, [locale]);
 
   return (
-    <Card className="neumorphic-shadow-light p-3 sm:p-4 text-center max-w-xs sm:max-w-sm w-full">
+    <Card className="neumorphic-shadow-light glass-effect p-4 sm:p-6 text-center max-w-md w-full border border-primary/20 rounded-2xl">
       <CardContent className="p-0">
-        <div className="text-2xl sm:text-3xl md:text-4xl font-mono font-semibold text-primary mb-1">
+        <div className="text-3xl sm:text-4xl md:text-5xl font-mono font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 tracking-wide">
           {timeString}
         </div>
-        <div className="text-xs sm:text-sm text-muted-foreground">
+        <div className="text-sm sm:text-base text-muted-foreground/80 font-light tracking-wider">
           {dateString}
         </div>
+        <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-accent mx-auto mt-3 rounded-full"></div>
       </CardContent>
     </Card>
   );
